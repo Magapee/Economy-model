@@ -1,0 +1,1 @@
+richness_inf = 1
