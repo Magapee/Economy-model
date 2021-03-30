@@ -27,7 +27,7 @@ class LocalMarket:
                  population: int,   # количество семей
                  richness: int,     # богатство в абстрактных единицах 
                  dispersy: float,
-                 product):  # неравенство межжду слоями населения
+                 product):  # неравенство между слоями населения
         self.name = name
         self.population = population
         self.richness = richness
