@@ -43,12 +43,14 @@ class LocalMarket:
         dis = self.dispersy * 2
         K = dis/self.product.lux
 
+        cost = lambda x: (K/((x + K*k - S*0.5) - K*k + B + S*0.5) * self.population * self.product.consumption * self.product.not_panic_time / 50)*self.product.mid_cost
+
         x = [i for i in frange(-0.1, 1000, 0.2)]
-        y = [(K/((i + K*k - S*0.5) - K*k + B + S*0.5) * self.population * self.product.consumption * self.product.not_panic_time / 50)*self.product.mid_cost for i in frange(-0.1, 1000, 0.2)]
+        y = [cost(i) for i in frange(-0.1, 1000, 0.2)]
         plt.plot(x, y)
         plt.vlines(quantity, 10, 0)
         plt.show()
-        return (K/((quantity + K*k - S*0.5) - K*k + B + S*0.5) * self.population * self.product.consumption * self.product.not_panic_time / 50)*self.product.mid_cost
+        return cost(quantity)
 
     def _generate_population(self):
         # draw_axe(plt, 5)
